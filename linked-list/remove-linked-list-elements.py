@@ -10,15 +10,14 @@ class Solution(object):
         :type val: int
         :rtype: Optional[ListNode]
         """
-        while head is not None and head.val == val:
-            head = head.next
-        
-        curr = head
+        dummyhead = ListNode()
+        dummyhead.next = head
+        curr = dummyhead
 
-        while curr is not None and curr.next is not None:
+        while curr.next:
             if curr.next.val == val:
                 curr.next = curr.next.next
             else:
                 curr = curr.next
-        
-        return head
+
+        return dummyhead.next
