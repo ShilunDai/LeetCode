@@ -1,19 +1,23 @@
 class MyLinkedList {
-public:
-
+private:
     struct LinkedNode{
         int val;
         LinkedNode* next;
         LinkedNode(int val):val(val), next(nullptr) {};
     };
 
+    LinkedNode* dummyhead;
+    int size;
+
+public:
+
     MyLinkedList() {
         dummyhead = new LinkedNode(0);
-        _size = 0;
+        size = 0;
     }
     
     int get(int index) {
-        if (index < 0 || index >= _size){
+        if (index < 0 || index >= size){
             return -1;
         }
 
@@ -28,7 +32,7 @@ public:
         LinkedNode* newhead = new LinkedNode(val);
         newhead->next = dummyhead->next;
         dummyhead->next = newhead;
-        _size++;
+        size++;
     }
     
     void addAtTail(int val) {
@@ -40,14 +44,11 @@ public:
         }
 
         curr->next = newtail;
-        _size++;
+        size++;
     }
     
     void addAtIndex(int index, int val) {
-        if (index > _size){
-            return;
-        }
-        if (index < 0){
+        if (index > size || index < 0){
             return;
         }
 
@@ -59,12 +60,12 @@ public:
 
         newnode->next = curr->next;
         curr->next = newnode;
-        _size++;
+        size++;
 
     }
     
     void deleteAtIndex(int index) {
-        if (index < 0||index>=_size){
+        if (index < 0||index>=size){
             return;
         }
 
@@ -78,12 +79,8 @@ public:
         curr->next = curr->next->next;
         delete temp;
         temp = nullptr;
-        _size--;
+        size--;
     }
-
-private:
-    LinkedNode* dummyhead;
-    int _size;
 };
 
 /**
