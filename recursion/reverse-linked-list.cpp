@@ -13,10 +13,9 @@ public:
     ListNode* reverseList(ListNode* head) {
         ListNode* pre = NULL;
         ListNode* curr = head;
-        ListNode* temp;
 
         while (curr){
-            temp = curr->next;
+            ListNode* temp = curr->next;
             curr->next = pre;
 
             pre = curr;
