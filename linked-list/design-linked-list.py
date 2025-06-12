@@ -34,7 +34,7 @@ class MyLinkedList:
         self.size+=1
 
     def addAtIndex(self, index: int, val: int) -> None:
-        if index < 0 or index > self.size-1:
+        if index < 0 or index > self.size:
             return 
         else:
             new = LinkedNode(val)
@@ -48,7 +48,7 @@ class MyLinkedList:
             self.size+=1
 
     def deleteAtIndex(self, index: int) -> None:
-        if index < 0 or index > self.size:
+        if index < 0 or index > self.size-1:
             return 
         else:
             curr = self.dummyhead
