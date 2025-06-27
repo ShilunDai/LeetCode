@@ -9,26 +9,22 @@ public:
 
         vector<vector<int>> res(n, vector<int>(n,0));
 
-        while (loop){
-            int i = startx;
-            int j = starty;
-
-            for (;j<n-offset;++j){
-                res[i][j] = count++;
+        while (loop--){
+            for (int j=startx;j<n-offset;++j){
+                res[startx][j] = count++;
             }
-            for (;i<n-offset;++i){
-                res[i][j] = count++;
+            for (int i=starty;i<n-offset;++i){
+                res[i][n-offset] = count++;
             }
-            for (;j>startx; --j){
-                res[i][j] = count++;
+            for (int j=n-offset;j>startx; --j){
+                res[n-offset][j] = count++;
             }
-            for (;i>startx; --i){
-                res[i][j] = count++;
+            for (int i=n-offset;i>startx; --i){
+                res[i][startx] = count++;
             }
             startx++;
             starty++;
             offset++;
-            loop--;
         }
 
         if (n%2==1){
