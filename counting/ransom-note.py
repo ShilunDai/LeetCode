@@ -1,8 +1,6 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        if len(magazine) < len(ransomNote):
-            return False
-
+        
         records = [0]*26
 
         for char in magazine:
