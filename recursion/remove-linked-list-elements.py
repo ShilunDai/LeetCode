@@ -9,9 +9,9 @@ class Solution:
         dummy.next = head
         curr = dummy
 
-        while curr.next:
-            if curr.next.val == val:
+        while curr and curr.next:
+            while curr.next and curr.next.val == val:
                 curr.next = curr.next.next
-            else:
-                curr = curr.next
+            
+            curr = curr.next
         return dummy.next
