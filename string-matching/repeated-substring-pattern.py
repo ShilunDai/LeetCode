@@ -9,4 +9,4 @@ class Solution:
             if s[i]==s[i]:
                 j+=1
             next[i]=j
-        return len(s)==1 or len(s)%(len(s)-next[-1])==0
+        return len(s)!=1 or len(s)%(len(s)-next[-1])==0
