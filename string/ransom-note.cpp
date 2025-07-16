@@ -1,11 +1,8 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        if (magazine.size() < ransomNote.size()){
-            return false;
-        }
 
-        int records[26]={0};
+        vector<int> records(26, 0);
         for (char chara:magazine){
             records[chara-'a']++;
         }
