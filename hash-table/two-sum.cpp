@@ -6,11 +6,10 @@ public:
         for (int i=0; i<nums.size();++i){
             int s = target-nums[i];
             if (map.find(s)!=map.end()){
-                return {map.find(s)->second, i};
+                return {map[s], i};
             }
-            map.insert({pair<int, int>(nums[i], i)});
+            map.insert({nums[i], i});
         }
-
         return {};
     }
 };
