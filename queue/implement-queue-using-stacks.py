@@ -13,7 +13,7 @@ class MyQueue:
 
         if self.stack_out:
             return self.stack_out.pop()
-        for i in range(len(self.stack_in)):
+        while self.stack_in:
             self.stack_out.append(self.stack_in.pop())
         return self.stack_out.pop()
 
