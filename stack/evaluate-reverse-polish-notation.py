@@ -4,16 +4,10 @@ class Solution:
 
         for token in tokens:
             if token in "+-*/":
-                b = st.pop()
-                a = st.pop()
-                if token == '+':
-                    st.append(a + b)
-                elif token == '-':
-                    st.append(a - b)
-                elif token == '*':
-                    st.append(a * b)
-                elif token == '/':
-                    st.append(int(a / b))
+                num1=st.pop()
+                num2=st.pop()
+                result = eval(num2+token+num1)
+                st.append(str(int(result)))
             else:
-                st.append(int(token))
-        return st[0]
+                st.append(token)
+        return int(st[0])
