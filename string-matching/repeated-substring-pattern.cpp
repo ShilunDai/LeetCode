@@ -14,6 +14,6 @@ public:
             next[i] = j;
         }
 
-        return next[len-1]!=0 && len%(len-next[len-1])==0;
+        return len%(len-next[len-1])==0;
     }
 };
