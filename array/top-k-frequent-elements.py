@@ -1,8 +1,8 @@
 class Solution:
     def topKFrequent(self, nums, k):
-        time_dict = defaultdict(int)
+        time_dict = {}
         for num in nums:
-            time_dict[num] += 1
+            time_dict[num] = time_dict.get(num, 0) + 1
 
         sorted_items = sorted(time_dict.items(), key=lambda x: x[1], reverse=True)
 
